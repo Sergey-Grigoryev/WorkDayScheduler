@@ -69,3 +69,14 @@ textarea {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+body div p {
+  margin: auto;
+}
+/* .fivePM {
+  background-color: tomato;
+} */
+
+/* .form-control {
+   
+} */
