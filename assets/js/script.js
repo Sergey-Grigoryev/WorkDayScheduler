@@ -89,7 +89,7 @@ for (i = 0; i < 9; i++) {
         eachInput.style.opacity = "50%";
         eachInput.style.backgroundColor = "lightgray";
     } else if (time > moment().format('H')) {
-        eachInput.style.opacity = "100%";
+        eachInput.style.opacity = "50%";
         eachInput.style.backgroundColor = "lightgreen";
     } else {
         eachInput.style.opacity = "100%";
@@ -98,59 +98,147 @@ for (i = 0; i < 9; i++) {
 
     if (stored) {
         eachInput.setAttribute("value", stored);
-        eachInput.style.backgroundColor = "lightgreen";
+        eachInput.style.fontWeight = "999";
+        eachInput.style.color = "darkgreen";
+        //eachInput.style.backgroundColor = "lightgreen";
     };
 };
 
-var saveTask = function(task, time) {
-    let saveTime;
-    if (time === "9") {
-        saveTime = input9;
-    } else if (time === "10") {
-        saveTime = input10;
-    } else if (time === "11") {
-        saveTime = input11;
-    } else if (time === "12") {
-        saveTime = input12;
-    } else if (time === "13") {
-        saveTime = input13;
-    } else if (time === "14") {
-        saveTime = input14;
-    } else if (time === "15") {
-        saveTime = input15;
-    } else if (time === "16") {
-        saveTime = input16;
-    } else {
-        saveTime = input17;
-    };
+var saveTask = function(task, time, input) {
+    // let saveTime;
+    // if (time === "9") {
+    //     saveTime = input9;
+    // } else if (time === "10") {
+    //     saveTime = input10;
+    // } else if (time === "11") {
+    //     saveTime = input11;
+    // } else if (time === "12") {
+    //     saveTime = input12;
+    // } else if (time === "13") {
+    //     saveTime = input13;
+    // } else if (time === "14") {
+    //     saveTime = input14;
+    // } else if (time === "15") {
+    //     saveTime = input15;
+    // } else if (time === "16") {
+    //     saveTime = input16;
+    // } else {
+    //     saveTime = input17;
+    // };
     
-    saveTime.setAttribute("value", task);
-    saveTime.style.backgroundColor = "lightgreen";
+    input.setAttribute("value", task);
+    //input.style.backgroundColor = "lightgreen";
+    input.style.color = "darkgreen";
+    input.style.fontWeight = "900";
     localStorage.setItem(time, task);
 };
 
+var delTask = function(input, time) {
+    input.value = "";
+    input.style.fontWeight = "";
+    localStorage.removeItem(time);
+    // if (time < moment().format('H')) {
+    //     input.style.opacity = "50%";
+    //     input.style.backgroundColor = "lightgray";
+    // }; 
+};
+
 btn9Save.addEventListener("click", function() {
-    var task = input9.value;
-    var time = "9";
-    if (task) {
-        saveTask(task, time);
+    if (input9.value) {
+        saveTask(input9.value, "9", input9);
     } else {
-        input9.setAttribute("placeholder", "Add task details");
-        input9.style.backgroundColor = "";
-        localStorage.removeItem("9");
-    }
+        delTask(input9, "9");
+    };
 });
 
 btn10Save.addEventListener("click", function() {
-    var task = input10.value;
-    var time = "10";
-    if (task) {
-        saveTask(task, time);
+    if (input10.value) {
+        saveTask(input10.value, "10", input10);
     } else {
-        input10.setAttribute("placeholder", "Add task details");
-        input10.style.backgroundColor = "";
-        localStorage.removeItem("10");
-    }
+        delTask(input10, "10");
+    };
 });
 
+btn11Save.addEventListener("click", function() {
+    if (input11.value) {
+        saveTask(input11.value, "11", input11);
+    } else {
+        delTask(input11, "11");
+    };
+});
 
+btn12Save.addEventListener("click", function() {
+    if (input12.value) {
+        saveTask(input12.value, "12", input12);
+    } else {
+        delTask(input12, "12");
+    };
+});
+
+btn13Save.addEventListener("click", function() {
+    if (input13.value) {
+        saveTask(input13.value, "13", input13);
+    } else {
+        delTask(input13, "13");
+    };
+});
+
+btn14Save.addEventListener("click", function() {
+    if (input14.value) {
+        saveTask(input14.value, "14", input14);
+    } else {
+        delTask(input14, "14");
+    };
+});
+
+btn15Save.addEventListener("click", function() {
+    if (input15.value) {
+        saveTask(input15.value, "15", input15);
+    } else {
+        delTask(input15, "15");
+    };
+});
+
+btn16Save.addEventListener("click", function() {
+    if (input16.value) {
+        saveTask(input16.value, "16", input16);
+    } else {
+        delTask(input16, "16");
+    };
+});
+
+btn17Save.addEventListener("click", function() {
+    if (input17.value) {
+        saveTask(input17.value, "17", input17);
+    } else {
+        delTask(input17, "17");
+    };
+});
+
+btn9Del.addEventListener("click", function() {
+    delTask(input9, "9");
+})
+btn10Del.addEventListener("click", function() {
+    delTask(input10, "10");
+})
+btn11Del.addEventListener("click", function() {
+    delTask(input11, "11");
+})
+btn12Del.addEventListener("click", function() {
+    delTask(input12, "12");
+})
+btn13Del.addEventListener("click", function() {
+    delTask(input13, "13");
+})
+btn14Del.addEventListener("click", function() {
+    delTask(input14, "14");
+})
+btn15Del.addEventListener("click", function() {
+    delTask(input15, "15");
+})
+btn16Del .addEventListener("click", function() {
+    delTask(input16, "16");
+})
+btn17Del.addEventListener("click", function() {
+    delTask(input17, "17");
+})
