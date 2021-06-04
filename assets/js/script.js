@@ -39,7 +39,7 @@ let stored15 = localStorage.getItem("15");
 let stored16 = localStorage.getItem("16");
 let stored17 = localStorage.getItem("17");
 
-var storedArray = [stored9, stored10, stored11, stored12, stored13, stored14, stored15, stored16, stored17];
+// var storedArray = [stored9, stored10, stored11, stored12, stored13, stored14, stored15, stored16, stored17];
 
 // current date and time
 document.querySelector("#currentDay").textContent = moment().format('LLLL');
@@ -100,49 +100,24 @@ for (i = 0; i < 9; i++) {
         eachInput.setAttribute("value", stored);
         eachInput.style.fontWeight = "999";
         eachInput.style.color = "darkgreen";
-        //eachInput.style.backgroundColor = "lightgreen";
     };
 };
 
+// Save button function
 var saveTask = function(task, time, input) {
-    // let saveTime;
-    // if (time === "9") {
-    //     saveTime = input9;
-    // } else if (time === "10") {
-    //     saveTime = input10;
-    // } else if (time === "11") {
-    //     saveTime = input11;
-    // } else if (time === "12") {
-    //     saveTime = input12;
-    // } else if (time === "13") {
-    //     saveTime = input13;
-    // } else if (time === "14") {
-    //     saveTime = input14;
-    // } else if (time === "15") {
-    //     saveTime = input15;
-    // } else if (time === "16") {
-    //     saveTime = input16;
-    // } else {
-    //     saveTime = input17;
-    // };
-    
     input.setAttribute("value", task);
-    //input.style.backgroundColor = "lightgreen";
     input.style.color = "darkgreen";
     input.style.fontWeight = "900";
     localStorage.setItem(time, task);
 };
-
+// Delete button funtion
 var delTask = function(input, time) {
     input.value = "";
     input.style.fontWeight = "";
     localStorage.removeItem(time);
-    // if (time < moment().format('H')) {
-    //     input.style.opacity = "50%";
-    //     input.style.backgroundColor = "lightgray";
-    // }; 
 };
 
+// each Save button eventListeners
 btn9Save.addEventListener("click", function() {
     if (input9.value) {
         saveTask(input9.value, "9", input9);
@@ -215,6 +190,7 @@ btn17Save.addEventListener("click", function() {
     };
 });
 
+// Each Delete button eventListeners
 btn9Del.addEventListener("click", function() {
     delTask(input9, "9");
 })
